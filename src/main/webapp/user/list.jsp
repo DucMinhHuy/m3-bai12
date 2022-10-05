@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <html>
 <head>
     <title>User Management Application</title>
@@ -35,8 +35,13 @@
         <td><c:out value="${user.email}"/></td>
         <td><c:out value="${user.country}"/></td>
         <td>
-          <a href="/users?action=edit&id=${user.id}">Edit</a>
+          <form action="/us" method="post">
+<%--          <a href="/users?action=edit&id=${user.id}">Edit</a>--%>
+            <input type="text" name="abc"/>
+            <input type="submit" value="cac"/>
+          </form>
           <a href="/users?action=delete&id=${user.id}">Delete</a>
+
         </td>
       </tr>
     </c:forEach>

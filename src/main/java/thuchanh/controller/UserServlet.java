@@ -1,5 +1,6 @@
 package thuchanh.controller;
 import thuchanh.model.User;
+import thuchanh.secive.UserDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,12 +21,14 @@ public class UserServlet extends HttpServlet {
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String action=request.getParameter("action");
+        String action1=request.getParameter("abc");
+        System.out.println(action1);
         if(action==null){
             action="";
         }
         try{
             switch (action){
-                case "crate":
+                case "create":
                     insertUser(request,response);
                     break;
                 case "edit":
@@ -38,6 +41,7 @@ public class UserServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request,HttpServletResponse response)
         throws ServletException,IOException{
         String action=request.getParameter("action");
+        String action1=request.getParameter("abc");
         if(action==null){
             action="";
         }
@@ -63,7 +67,7 @@ public class UserServlet extends HttpServlet {
     private void listUser(HttpServletRequest request,HttpServletResponse response)throws SQLException,IOException,ServletException{
         List<User> listUser=userDAO.selectAllUsers();
         request.setAttribute("listUser",listUser);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("list.jsp");
+        RequestDispatcher dispatcher=request.getRequestDispatcher("user/list.jsp");
         dispatcher.forward(request,response);
     }
     private void showNewFrom(HttpServletRequest request,HttpServletResponse response)

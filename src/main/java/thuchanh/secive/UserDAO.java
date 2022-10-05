@@ -1,4 +1,4 @@
-package thuchanh.controller;
+package thuchanh.secive;
 
 import thuchanh.methodrs.IUserDAO;
 import thuchanh.model.User;
